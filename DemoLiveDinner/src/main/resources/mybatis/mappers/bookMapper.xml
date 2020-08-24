@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.bookMapper"> <!-- like package of class -->
+		<resultMap type="bookVO" id="bookResult">
+				<result property="bkid" column="bkid"/>
+				<result property="bkname" column="bkid"/>
+				<result property="bkemail" column="bkemail"/>
+				<result property="bkphone" column="bkphone"/>
+				<result property="bktime" column="bktime"/>
+				<result property="bknum" column="bknum"/>
+				<result property="booking" column="booking"/>
+				<result property="bkmemo" column="bkmemo"/>
+		</resultMap>
+		
+		<!--  make SQL Statement -->
+		<select id="selectAll"> <!-- mappers.bookMapper.selectAll -->
+				<![CDATA[SELECT * FROM book order by bktime desc]]>
+		</select>
+		<select id="selectOne" resultMap="bookResult" parameterType="int"> <!-- mappers.bookMapper.selectOne -->
+				<![CDATA[
+								SELECT * FROM book 
+								 where bkid = #{id}
+				 ]]>
+		</select>
+		
+		<insert id="insert" parameterType="bookVO">
+			<![CDATA[
+					INSERT INTO book (bkname,bkemail,bkphone,bktime,bknum,booking,bkmemo)
+					 values (#{bkname},#{bkemail},#{bkphone},#{bktime},#{bknum},#{booking},#{bkmemo})
+			]]>
+		</insert>
+		
+		<update id="update">
+			<![CDATA[
+					UPDATE book set
+					bkname = #{bkname},
+					bkemail = #{bkemail},
+					bkphone = #{bkphone},
+					bktime = #{bktime},
+					bknum = #{bknum},
+					booking = #{booking},
+					bkmemo = #{bkmemo}
+					 where bkid = #{bkid}
+			]]>
+		</update>
+		
+		<delete id="datele" parameterType="int">
+				<![CDATA[
+								DELETE FROM book 
+								 where bkid = #{id}
+				 ]]>
+		</delete>
+</mapper>

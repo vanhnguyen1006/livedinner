@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.contactMapper"> <!-- like package of class -->
+		<resultMap type="contact" id="contactResult">
+				<result property="coid" column="coid"/>
+				<result property="coname" column="coname"/>
+				<result property="priphone" column="priphone"/>
+				<result property="subphone" column="subphone"/>
+				<result property="email" column="email"/>
+				<result property="address" column="address"/>
+				<result property="unused" column="unused"/>
+				<result property="opening" column="opening"/>
+				<result property="weekday" column="weekday"/>
+				<result property="weekend" column="weekend"/>
+				<result property="aboutus" column="aboutus"/>
+				<result property="latitude" column="latitude"/>
+				<result property="logitude" column="logitude"/>
+		</resultMap>
+		
+		<!--  make SQL Statement -->
+		<select id="selectAll" resultMap="contactResult"> <!-- mappers.bookMapper.selectAll -->
+				<![CDATA[SELECT * FROM contact]]>
+		</select>
+		
+		<select id="selectOne" resultMap="contactResult" parameterType="int"> <!-- mappers.bookMapper.selectOne -->
+				<![CDATA[
+								SELECT * FROM contact where coid = #{id}
+				 ]]>
+		</select>
+		
+		<insert id="insert">
+			<![CDATA[
+					INSERT INTO contact (coname,priphone,subphone,email,address,unused,opening,weekday,weekend,aboutus,latitude,logitude) values 
+					(#{coname},#{priphone},#{subphone},#{email},#{address},#{unused},#{opening},#{weekday},#{weekend},#{aboutus},#{latitude},#{logitude})
+			]]>
+		</insert>
+		
+		<update id="update" parameterType="contact">
+			<![CDATA[
+					UPDATE contact set
+					coname = #{coname},
+					priphone = #{priphone},
+					subphone = #{subphone},
+					email = #{email},
+					address = #{address},
+					unused = #{unused},
+					opening = #{opening},
+					weekday = #{weekday},
+					weekend = #{weekend},
+					aboutus = #{aboutus},
+					latitude = #{latitude},
+					logitude = #{logitude} where coid = #{coid}
+			]]>
+		</update>
+		
+		<delete id="delete" parameterType="int">
+				<![CDATA[
+								DELETE FROM contact 
+								 where coid = #{id}
+				 ]]>
+		</delete>
+</mapper>
