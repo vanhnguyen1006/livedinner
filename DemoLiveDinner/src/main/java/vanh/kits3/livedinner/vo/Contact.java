@@ -156,6 +156,5 @@ public class Contact {
 				+ " | Weekday:" + weekday + " | Weekend:" + weekend + " | Aboutus:" + aboutus + " | Latitude:" + latitude
 				+ " | Logitude:" + logitude;
 	}
-    
-    
+
 }

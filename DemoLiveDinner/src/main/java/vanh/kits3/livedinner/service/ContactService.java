@@ -25,7 +25,7 @@ public class ContactService {
 		dao.insert(cont);
 	}
 	
-	public void edit(Contact cont) {
+	public void update(Contact cont) {
 		dao.update(cont);
 	}
 	

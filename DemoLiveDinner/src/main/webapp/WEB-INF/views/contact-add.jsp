@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ page session="false"%>
-
+<% String contextPath = request.getContextPath(); %>
 
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
@@ -21,20 +21,20 @@
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="./resources/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="./resources/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="<%=contextPath %>/resources/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<%=contextPath %>/resources/images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./resources/css/bootstrap.min.css">    
+    <link rel="stylesheet" href="<%=contextPath %>/resources/css/bootstrap.min.css">    
 	<!-- Site CSS -->
-    <link rel="stylesheet" href="./resources/css/style.css"> 
-    <link rel="stylesheet" href="./resources/css/classic.css">     
-    <link rel="stylesheet" href="./resources/css/classic.date.css">    
-	<link rel="stylesheet" href="./resources/css/classic.time.css">   
+    <link rel="stylesheet" href="<%=contextPath %>/resources/css/style.css"> 
+    <link rel="stylesheet" href="<%=contextPath %>/resources/css/classic.css">     
+    <link rel="stylesheet" href="<%=contextPath %>/resources/css/classic.date.css">    
+	<link rel="stylesheet" href="<%=contextPath %>/resources/css/classic.time.css">   
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="./resources/css/responsive.css">
+    <link rel="stylesheet" href="<%=contextPath %>/resources/css/responsive.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./resources/css/custom.css">
+    <link rel="stylesheet" href="<%=contextPath %>/resources/css/custom.css">
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -112,7 +112,7 @@
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control"  name="aboutus" placeholder="aboutus">
+					<input type="text" class="form-control"  name="aboutus" placeholder="Aboutus">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
@@ -146,9 +146,9 @@
 	</footer>
 	
 	<!-- ALL JS FILES -->
-	<script src="./resources/js/jquery-3.2.1.min.js"></script>
-	<script src="./resources/js/popper.min.js"></script>
-	<script src="./resources/js/bootstrap.min.js"></script>
+	<script src="<%=contextPath %>/resources/js/jquery-3.2.1.min.js"></script>
+	<script src="<%=contextPath %>/resources/js/popper.min.js"></script>
+	<script src="<%=contextPath %>/resources/js/bootstrap.min.js"></script>
     <!-- ALL PLUGINS -->
 	
 </body>

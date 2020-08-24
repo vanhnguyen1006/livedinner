@@ -1,11 +1,15 @@
 package vanh.kits3.livedinner.controller;
 
 import java.util.List;
+import java.util.function.*;
+import java.lang.Exception;
+import java.lang.Throwable;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -67,13 +71,14 @@ public class ContactController {
 	}
 	
 	@RequestMapping(value = "/contact/edit/{id}", method = RequestMethod.GET)
-	public String editCont(Model model, @PathVariable("id") String id) {
-		Contact cont = service.findOne(Integer.parseInt(id));
+	public String editCont(Model model, @PathVariable("id") int id) {
+		Contact cont = service.findOne(id);
 		model.addAttribute("contact",cont);
 		return "contact-update";
 	}
-	@RequestMapping(value = "/contact/update/{id}", method = RequestMethod.GET)
-	public String updateCont(@RequestParam("coname") String name,
+	@RequestMapping(value = "/contact/edit/{id}", method = RequestMethod.POST)
+	public String updateCont(@PathVariable("id") String id, Contact cont, BindingResult result, Model model,
+											@RequestParam("coname") String name,
 											@RequestParam("priphone") String priphone,
 											@RequestParam("subphone") String subphone,
 											@RequestParam("email") String email,
@@ -84,10 +89,14 @@ public class ContactController {
 											@RequestParam("weekend") String weekend,
 											@RequestParam("aboutus") String about,
 											@RequestParam("latitude") Double lati,
-											@RequestParam("logitude") Double logi,
-											@PathVariable("id") String id) {
+											@RequestParam("logitude") Double logi) {
+		int coid = Integer.parseInt(id);
+		if(result.hasErrors()) {
+			cont.setCoid(coid);
+			return "views/contact-update";
+		}
 		
-		Contact cont = new Contact();
+		cont.setCoid(coid);
 		cont.setConame(name);
 		cont.setPriphone(priphone);
 		cont.setSubphone(subphone);
@@ -100,8 +109,9 @@ public class ContactController {
 		cont.setAboutus(about);
 		cont.setLatitude(lati);
 		cont.setLogitude(logi);
-		System.out.println(name);
-		service.edit(cont);
+		
+		service.update(cont);
+		model.addAttribute("contacts", service.findAll());
 		return "redirect:/contact";
 	}
 	

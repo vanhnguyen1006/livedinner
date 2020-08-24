@@ -90,41 +90,41 @@
 		</div>
 	</div>
 	<!-- End All Pages -->
-	<form id="contactForm" method="get" action="<c:url value='/contact/update/{id}' />">
+	<form id="contactForm" method="post" action="" >
 		<div class="row">
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control" name="coname" placeholder="Your Name" required data-error="Please enter name">
+					<input type="text" class="form-control" name="coname" placeholder="Your Name" required data-error="Please enter name" value="${contact.coname }">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control" name="priphone" placeholder="PriPhone" >
+					<input type="text" class="form-control" name="priphone" placeholder="PriPhone" value="${contact.priphone }" required data-error="Please enter priphone">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control" name="subphone" placeholder="SubPhone">
+					<input type="text" class="form-control" name="subphone" placeholder="SubPhone" value="${contact.subphone }" required data-error="Please enter subphone">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control"  name="email" placeholder="Email">
+					<input type="text" class="form-control"  name="email" placeholder="Email" value="${contact.email }" required data-error="Please enter email">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control"  name="address" placeholder="Address">
+					<input type="text" class="form-control"  name="address" placeholder="Address" value="${contact.address }" required data-error="Please enter address">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<select class="custom-select d-block form-control"  name="unused" required data-error="Unused">
+					<select class="custom-select d-block form-control"  name="unused" required data-error="Unused" value="${contact.unused }">
 						<option disabled selected>Select Unused*</option>
 						<option value="0">1</option>
 						<option value="1">2</option>
@@ -134,37 +134,37 @@
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control"  name="opening" placeholder="Opening">
+					<input type="text" class="form-control"  name="opening" placeholder="Opening" value="${contact.opening }" required data-error="Please enter opening">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control"  name="weekday" placeholder="Weekday">
+					<input type="text" class="form-control"  name="weekday" placeholder="Weekday" value="${contact.weekday }"  required data-error="Please enter weekday">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control"  name="weekend" placeholder="Weekend">
+					<input type="text" class="form-control"  name="weekend" placeholder="Weekend" value="${contact.weekend }" required data-error="Please enter weekend">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control"  name="aboutus" placeholder="aboutus">
+					<input type="text" class="form-control"  name="aboutus" placeholder="Aboutus" value="${contact.aboutus }" required data-error="Please enter aboutus">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control"  name="latitude" placeholder="Latitude">
+					<input type="text" class="form-control"  name="latitude" placeholder="Latitude" value="${contact.latitude }" required data-error="Please enter latitude">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
 			<div class="col-md-12">
 				<div class="form-group">
-					<input type="text" class="form-control"  name="logitude" placeholder="Logitude">
+					<input type="text" class="form-control"  name="logitude" placeholder="Logitude" value="${contact.logitude }" required data-error="Please enter logitude">
 					<div class="help-block with-errors"></div>
 				</div>                                 
 			</div>
@@ -337,13 +337,6 @@
 	<script src="<%=contextPath %>/resources/js/popper.min.js"></script>
 	<script src="<%=contextPath %>/resources/js/bootstrap.min.js"></script>
     <!-- ALL PLUGINS -->
-	<script src="<%=contextPath %>/resources/js/jquery.superslides.min.js"></script>
-	<script src="<%=contextPath %>/resources/js/images-loded.min.js"></script>
-	<script src="<%=contextPath %>/resources/js/isotope.min.js"></script>
-	<script src="<%=contextPath %>/resources/js/baguetteBox.min.js"></script>
-	<script src="<%=contextPath %>/resources/js/form-validator.min.js"></script>
-    <script src="<%=contextPath %>/resources/js/contact-form-script.js"></script>
-    <script src="<%=contextPath %>/resources/js/custom.js"></script>
-    <script src="<%=contextPath %>/resources/js/active.js"></script>
+	
 </body>
 </html>
